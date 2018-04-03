@@ -7,7 +7,7 @@
 //
 
 #import "ViewController.h"
-#import "BRPtouchPrinterKit.framework/BRPtouchPrinterKit"
+#import <BRPtouchPrinterKit/BRPtouchPrinterKit.h>
 
 #import "UserDefaults.h"
 
