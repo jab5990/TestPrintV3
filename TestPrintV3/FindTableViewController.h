@@ -1,5 +1,5 @@
 //
-//  ViewController.h
+//  FindTableViewController.h
 //  TestPrintV3
 //
 //  Created by barroso on 4/3/18.
@@ -8,10 +8,6 @@
 
 #import <UIKit/UIKit.h>
 
-@interface ViewController : UIViewController
-
-@property (strong, nonatomic) IBOutlet UIImageView *image;
-
+@interface FindTableViewController : UITableViewController
 
 @end
-

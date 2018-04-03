@@ -21,6 +21,10 @@
     [super viewDidLoad];
     // Do any additional setup after loading the view, typically from a nib.
 }
+- (IBAction)findPrinter:(id)sender {
+}
+- (IBAction)print:(id)sender {
+}
 
 
 - (void)didReceiveMemoryWarning {
