@@ -13,6 +13,10 @@
 		8A6E49A4207401B100760A5C /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 8A6E49A3207401B100760A5C /* Assets.xcassets */; };
 		8A6E49A7207401B100760A5C /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 8A6E49A5207401B100760A5C /* LaunchScreen.storyboard */; };
 		8A6E49AA207401B100760A5C /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 8A6E49A9207401B100760A5C /* main.m */; };
+		8A6E49B12074049700760A5C /* BRPtouchPrinterKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8A6E49B02074049700760A5C /* BRPtouchPrinterKit.framework */; };
+		8A6E49B3207404A300760A5C /* BRPtouchPrinterKitW.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8A6E49B2207404A300760A5C /* BRPtouchPrinterKitW.framework */; };
+		8A6E49B5207404BA00760A5C /* PrinterList.plist in Resources */ = {isa = PBXBuildFile; fileRef = 8A6E49B4207404B900760A5C /* PrinterList.plist */; };
+		8A6E49B7207404CB00760A5C /* Settings in Resources */ = {isa = PBXBuildFile; fileRef = 8A6E49B6207404CB00760A5C /* Settings */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -26,6 +30,11 @@
 		8A6E49A6207401B100760A5C /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		8A6E49A8207401B100760A5C /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		8A6E49A9207401B100760A5C /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
+		8A6E49B02074049700760A5C /* BRPtouchPrinterKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = BRPtouchPrinterKit.framework; sourceTree = "<group>"; };
+		8A6E49B2207404A300760A5C /* BRPtouchPrinterKitW.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = BRPtouchPrinterKitW.framework; sourceTree = "<group>"; };
+		8A6E49B4207404B900760A5C /* PrinterList.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = PrinterList.plist; sourceTree = "<group>"; };
+		8A6E49B6207404CB00760A5C /* Settings */ = {isa = PBXFileReference; lastKnownFileType = folder; path = Settings; sourceTree = "<group>"; };
+		8A6E49B8207404E100760A5C /* UserDefaults.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = UserDefaults.h; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -33,6 +42,8 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				8A6E49B12074049700760A5C /* BRPtouchPrinterKit.framework in Frameworks */,
+				8A6E49B3207404A300760A5C /* BRPtouchPrinterKitW.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -60,12 +71,17 @@
 			children = (
 				8A6E499A207401B100760A5C /* AppDelegate.h */,
 				8A6E499B207401B100760A5C /* AppDelegate.m */,
+				8A6E49B8207404E100760A5C /* UserDefaults.h */,
 				8A6E499D207401B100760A5C /* ViewController.h */,
+				8A6E49B6207404CB00760A5C /* Settings */,
 				8A6E499E207401B100760A5C /* ViewController.m */,
 				8A6E49A0207401B100760A5C /* Main.storyboard */,
 				8A6E49A3207401B100760A5C /* Assets.xcassets */,
 				8A6E49A5207401B100760A5C /* LaunchScreen.storyboard */,
 				8A6E49A8207401B100760A5C /* Info.plist */,
+				8A6E49B4207404B900760A5C /* PrinterList.plist */,
+				8A6E49B2207404A300760A5C /* BRPtouchPrinterKitW.framework */,
+				8A6E49B02074049700760A5C /* BRPtouchPrinterKit.framework */,
 				8A6E49A9207401B100760A5C /* main.m */,
 			);
 			path = TestPrintV3;
@@ -130,8 +146,10 @@
 			buildActionMask = 2147483647;
 			files = (
 				8A6E49A7207401B100760A5C /* LaunchScreen.storyboard in Resources */,
+				8A6E49B7207404CB00760A5C /* Settings in Resources */,
 				8A6E49A4207401B100760A5C /* Assets.xcassets in Resources */,
 				8A6E49A2207401B100760A5C /* Main.storyboard in Resources */,
+				8A6E49B5207404BA00760A5C /* PrinterList.plist in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -279,6 +297,10 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/TestPrintV3",
+				);
 				INFOPLIST_FILE = TestPrintV3/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.orionbelt.TestPrintV3;
@@ -292,6 +314,10 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/TestPrintV3",
+				);
 				INFOPLIST_FILE = TestPrintV3/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.orionbelt.TestPrintV3;
