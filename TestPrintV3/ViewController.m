@@ -250,6 +250,7 @@
         _ptp = [[BRPtouchPrinter alloc] initWithPrinterName:selectedDevice interface:self.type];
         CGImageRef imgRef = [self.image.image CGImage];
         
+        
                 self.queueForWLAN = [[NSOperationQueue alloc] init];
                 self.operationForWLAN = [[BRWLANPrintOperation alloc] initWithOperation:_ptp
                                                                               printInfo:printInfo
@@ -273,6 +274,7 @@
     }
 
 }
+
 
 
 - (void) showConnectionErrorAlert
