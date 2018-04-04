@@ -15,15 +15,26 @@
 
 @end
 
+
 @implementation ViewController
+
 
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view, typically from a nib.
 }
-- (IBAction)findPrinter:(id)sender {
+
+
+- (IBAction)findPrinter:(id)sender
+{
+
 }
-- (IBAction)print:(id)sender {
+
+
+- (IBAction)print:(id)sender
+{
+    
+    
 }
 
 

@@ -7,7 +7,16 @@
 //
 
 #import <UIKit/UIKit.h>
+#import <BRPtouchPrinterKit/BRPtouchNetworkManager.h>
 
-@interface FindTableViewController : UITableViewController
+typedef enum BRSearchMode : NSInteger
+{
+    BRSearchModeIPv4,
+    BRSearchModeIPv6IPv4,
+} BRSearchMode;
+
+@interface FindTableViewController : UITableViewController <BRPtouchNetworkDelegate>
+
+@property (assign, nonatomic) BRSearchMode mSearchMode;
 
 @end
