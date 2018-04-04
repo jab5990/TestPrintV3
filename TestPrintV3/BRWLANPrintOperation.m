@@ -77,17 +77,23 @@
             [self.ptp setCustomPaperFile:self.customPaperFilePath];
             
             
-            NSString *selectedPDFFilePath = [userDefaults objectForKey:kSelectedPDFFilePath];
+            // NSString *selectedPDFFilePath = [userDefaults objectForKey:kSelectedPDFFilePath];
+            
             int printResult = 0;
+            
+            /*
             if (![selectedPDFFilePath isEqualToString:@"0"]){
                 NSUInteger length = 0;
                 NSUInteger pageIndexes[] = {0};
                 //                int copies = 2;
                 printResult = [self.ptp printPDFAtPath:selectedPDFFilePath pages:pageIndexes length:length copy:self.numberOfPaper];
             }
-            else{
+            else{ */
+                
                 printResult = [self.ptp printImage:self.imgRef copy:self.numberOfPaper];
-            }
+            
+            //}
+            
             [userDefaults setObject:[NSString stringWithFormat:@"%d", printResult] forKey:kPrintResultForWLAN];
             [userDefaults synchronize];
             

@@ -25,6 +25,7 @@
 		8A6E49C7207510D300760A5C /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8A6E49C6207510D200760A5C /* UIKit.framework */; };
 		8A6E49C92075112A00760A5C /* libz.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = 8A6E49C82075112A00760A5C /* libz.tbd */; };
 		8A6E49CB2075113900760A5C /* libc++.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = 8A6E49CA2075113900760A5C /* libc++.tbd */; };
+		8A6E49CD20752F4C00760A5C /* empty_back.png in Resources */ = {isa = PBXBuildFile; fileRef = 8A6E49CC20752F4B00760A5C /* empty_back.png */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -53,6 +54,7 @@
 		8A6E49C6207510D200760A5C /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
 		8A6E49C82075112A00760A5C /* libz.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = libz.tbd; path = usr/lib/libz.tbd; sourceTree = SDKROOT; };
 		8A6E49CA2075113900760A5C /* libc++.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = "libc++.tbd"; path = "usr/lib/libc++.tbd"; sourceTree = SDKROOT; };
+		8A6E49CC20752F4B00760A5C /* empty_back.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = empty_back.png; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -94,6 +96,7 @@
 		8A6E4999207401B100760A5C /* TestPrintV3 */ = {
 			isa = PBXGroup;
 			children = (
+				8A6E49CC20752F4B00760A5C /* empty_back.png */,
 				8A6E499A207401B100760A5C /* AppDelegate.h */,
 				8A6E499B207401B100760A5C /* AppDelegate.m */,
 				8A6E49B8207404E100760A5C /* UserDefaults.h */,
@@ -187,6 +190,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				8A6E49CD20752F4C00760A5C /* empty_back.png in Resources */,
 				8A6E49A7207401B100760A5C /* LaunchScreen.storyboard in Resources */,
 				8A6E49B7207404CB00760A5C /* Settings in Resources */,
 				8A6E49A4207401B100760A5C /* Assets.xcassets in Resources */,

@@ -52,8 +52,47 @@
 }
 
 
+- (void)createImage
+{
+    UIImage *image;
+    // image = [self imageFromText];
+    image = [self imageFromTextWithPic];
+    self.image.image = image;
+    
+}
+
+- (UIImage *)imageFromTextWithPic
+{
+    UIImage *pic = [UIImage imageNamed:@"empty_back.png"];
+    
+    NSString *name = @"Jose Barroso";
+    NSString *dateIn = @"April 5, 2018    8:34 AM";
+    NSString *header = @"Visitor";
+    
+    UIFont *font2 = [UIFont systemFontOfSize:70.0];
+    UIFont *font = [UIFont systemFontOfSize:50.0];
+    UIFont *font3 = [UIFont systemFontOfSize:20.0];
+    CGSize size = CGSizeMake(550, 300);
+    
+    UIGraphicsBeginImageContext(size);
+    
+    // [pic drawAtPoint:CGPointMake(0.0, 15.0)];
+    [pic drawInRect:CGRectMake(0.0, 15.0, 200.0, 250.0)];
+    
+    [header drawAtPoint:CGPointMake(210.0, 15.0) withFont:font2];
+    [name drawAtPoint:CGPointMake(210.0, 100.0) withFont:font];
+    [dateIn drawAtPoint:CGPointMake(210.0, 230.0) withFont:font3];
+    
+    UIImage *image = UIGraphicsGetImageFromCurrentImageContext();
+    UIGraphicsEndImageContext();
+    
+    return image;
+}
+
 - (IBAction)print:(id)sender
 {
+    [self createImage];
+    
     [self prepareForPtp];
     if (_ptp)
     {
