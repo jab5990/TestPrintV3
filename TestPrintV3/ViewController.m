@@ -36,6 +36,11 @@
     [super viewDidLoad];
     
     [self initWithUserDefault];
+    
+    NSUserDefaults *userDefaults = [NSUserDefaults standardUserDefaults];
+    self.printerIP.text = [userDefaults stringForKey:kSelectedDevice];
+    self.printerName.text = [userDefaults stringForKey:kIPAddress];
+
 }
 
 - (void)viewWillAppear:(BOOL)animated {
@@ -389,13 +394,13 @@
     
     [defaults setObject:[NSString stringWithFormat:@"%d", Normal]   forKey:kPirintQuality];
     
-    [defaults setObject:@"No Selected"                                      forKey:kSelectedDevice];
-    [defaults setObject:@""                                                 forKey:kIPAddress];
-    [defaults setObject:@"0"                                                forKey:kSerialNumber];
-    [defaults setObject:@"Search device from Wi-Fi"                         forKey:kSelectedDeviceFromWiFi];
-    [defaults setObject:@"Search device from Bluetooth"                     forKey:kSelectedDeviceFromBluetooth];
+    //[defaults setObject:@"No Selected"                                      forKey:kSelectedDevice];
+    //[defaults setObject:@""                                                 forKey:kIPAddress];
+    //[defaults setObject:@"0"                                                forKey:kSerialNumber];
+    // [defaults setObject:@"Search device from Wi-Fi"                         forKey:kSelectedDeviceFromWiFi];
+    // [defaults setObject:@"Search device from Bluetooth"                     forKey:kSelectedDeviceFromBluetooth];
     
-    [defaults setObject:@"0"                                                forKey:kIsWiFi];
+    [defaults setObject:@"1"                                                forKey:kIsWiFi];
     [defaults setObject:@"0"                                                forKey:kIsBluetooth];
     
     [defaults setObject:@"0"                                                forKey:kSelectedPDFFilePath];

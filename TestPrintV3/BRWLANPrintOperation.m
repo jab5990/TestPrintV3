@@ -51,7 +51,7 @@
 
 + (BOOL)automaticallyNotifiesObserversForKey:(NSString*)key
 {
-    if ([key isEqualToString:@"communicationResultForWLAN"] ||
+   if ([key isEqualToString:@"communicationResultForWLAN"] ||
         [key isEqualToString:@"isExecutingForWLAN"]         ||
         [key isEqualToString:@"isFinishedForWLAN"]) {
         return YES;
@@ -69,9 +69,11 @@
     
     if ([self.ptp isPrinterReady])
     {
-        self.communicationResultForWLAN = [self.ptp startCommunication];
-        if (self.communicationResultForWLAN)
-        {
+        // self.communicationResultForWLAN = [self.ptp startCommunication];
+        [self.ptp startCommunication];
+        
+        //if (self.communicationResultForWLAN)
+        //{
             
             [self.ptp setPrintInfo:self.printInfo];
             [self.ptp setCustomPaperFile:self.customPaperFilePath];
@@ -109,7 +111,7 @@
             if ([self.delegate respondsToSelector:@selector(showPrintResultForWLAN)]) {
                 [self.delegate showPrintResultForWLAN];
             }
-        }
+        //}
         [self.ptp endCommunication];
         
     }
@@ -118,8 +120,8 @@
         self.communicationResultForWLAN = NO;
     }
     
-    self.isExecutingForWLAN = NO;
-    self.isFinishedForWLAN = YES;
+    //self.isExecutingForWLAN = NO;
+    //self.isFinishedForWLAN = YES;
 }
 
 @end

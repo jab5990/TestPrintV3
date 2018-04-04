@@ -19,6 +19,8 @@
 @property (strong, nonatomic) IBOutlet UIImageView *image;
 
 @property (nonatomic, weak)id<BRPrintResultViewControllerDelegate> delegate;
+@property (weak, nonatomic) IBOutlet UILabel *printerName;
+@property (weak, nonatomic) IBOutlet UILabel *printerIP;
 
 
 @end
