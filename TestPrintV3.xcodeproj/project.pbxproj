@@ -19,6 +19,12 @@
 		8A6E49B7207404CB00760A5C /* Settings in Resources */ = {isa = PBXBuildFile; fileRef = 8A6E49B6207404CB00760A5C /* Settings */; };
 		8A6E49BB2074081100760A5C /* libsqlite3.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = 8A6E49BA2074081100760A5C /* libsqlite3.tbd */; };
 		8A6E49BE20740B8000760A5C /* FindTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 8A6E49BD20740B8000760A5C /* FindTableViewController.m */; };
+		8A6E49C120750D0600760A5C /* BRWLANPrintOperation.m in Sources */ = {isa = PBXBuildFile; fileRef = 8A6E49C020750D0600760A5C /* BRWLANPrintOperation.m */; };
+		8A6E49C3207510B500760A5C /* ExternalAccessory.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8A6E49C2207510B400760A5C /* ExternalAccessory.framework */; };
+		8A6E49C5207510C200760A5C /* SystemConfiguration.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8A6E49C4207510C200760A5C /* SystemConfiguration.framework */; };
+		8A6E49C7207510D300760A5C /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8A6E49C6207510D200760A5C /* UIKit.framework */; };
+		8A6E49C92075112A00760A5C /* libz.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = 8A6E49C82075112A00760A5C /* libz.tbd */; };
+		8A6E49CB2075113900760A5C /* libc++.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = 8A6E49CA2075113900760A5C /* libc++.tbd */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -40,6 +46,13 @@
 		8A6E49BA2074081100760A5C /* libsqlite3.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = libsqlite3.tbd; path = usr/lib/libsqlite3.tbd; sourceTree = SDKROOT; };
 		8A6E49BC20740B8000760A5C /* FindTableViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = FindTableViewController.h; sourceTree = "<group>"; };
 		8A6E49BD20740B8000760A5C /* FindTableViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = FindTableViewController.m; sourceTree = "<group>"; };
+		8A6E49BF20750D0600760A5C /* BRWLANPrintOperation.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = BRWLANPrintOperation.h; sourceTree = "<group>"; };
+		8A6E49C020750D0600760A5C /* BRWLANPrintOperation.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = BRWLANPrintOperation.m; sourceTree = "<group>"; };
+		8A6E49C2207510B400760A5C /* ExternalAccessory.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = ExternalAccessory.framework; path = System/Library/Frameworks/ExternalAccessory.framework; sourceTree = SDKROOT; };
+		8A6E49C4207510C200760A5C /* SystemConfiguration.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SystemConfiguration.framework; path = System/Library/Frameworks/SystemConfiguration.framework; sourceTree = SDKROOT; };
+		8A6E49C6207510D200760A5C /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
+		8A6E49C82075112A00760A5C /* libz.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = libz.tbd; path = usr/lib/libz.tbd; sourceTree = SDKROOT; };
+		8A6E49CA2075113900760A5C /* libc++.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = "libc++.tbd"; path = "usr/lib/libc++.tbd"; sourceTree = SDKROOT; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -47,6 +60,11 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				8A6E49CB2075113900760A5C /* libc++.tbd in Frameworks */,
+				8A6E49C92075112A00760A5C /* libz.tbd in Frameworks */,
+				8A6E49C7207510D300760A5C /* UIKit.framework in Frameworks */,
+				8A6E49C5207510C200760A5C /* SystemConfiguration.framework in Frameworks */,
+				8A6E49C3207510B500760A5C /* ExternalAccessory.framework in Frameworks */,
 				8A6E49BB2074081100760A5C /* libsqlite3.tbd in Frameworks */,
 				8A6E49B12074049700760A5C /* BRPtouchPrinterKit.framework in Frameworks */,
 				8A6E49B3207404A300760A5C /* BRPtouchPrinterKitW.framework in Frameworks */,
@@ -83,6 +101,8 @@
 				8A6E49BD20740B8000760A5C /* FindTableViewController.m */,
 				8A6E499D207401B100760A5C /* ViewController.h */,
 				8A6E499E207401B100760A5C /* ViewController.m */,
+				8A6E49BF20750D0600760A5C /* BRWLANPrintOperation.h */,
+				8A6E49C020750D0600760A5C /* BRWLANPrintOperation.m */,
 				8A6E49B6207404CB00760A5C /* Settings */,
 				8A6E49A0207401B100760A5C /* Main.storyboard */,
 				8A6E49A3207401B100760A5C /* Assets.xcassets */,
@@ -99,6 +119,11 @@
 		8A6E49B92074081000760A5C /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				8A6E49CA2075113900760A5C /* libc++.tbd */,
+				8A6E49C82075112A00760A5C /* libz.tbd */,
+				8A6E49C6207510D200760A5C /* UIKit.framework */,
+				8A6E49C4207510C200760A5C /* SystemConfiguration.framework */,
+				8A6E49C2207510B400760A5C /* ExternalAccessory.framework */,
 				8A6E49BA2074081100760A5C /* libsqlite3.tbd */,
 			);
 			name = Frameworks;
@@ -180,6 +205,7 @@
 				8A6E49BE20740B8000760A5C /* FindTableViewController.m in Sources */,
 				8A6E499F207401B100760A5C /* ViewController.m in Sources */,
 				8A6E49AA207401B100760A5C /* main.m in Sources */,
+				8A6E49C120750D0600760A5C /* BRWLANPrintOperation.m in Sources */,
 				8A6E499C207401B100760A5C /* AppDelegate.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

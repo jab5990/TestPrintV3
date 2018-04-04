@@ -7,13 +7,18 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "BRWLANPrintOperation.h"
 
+@protocol BRPrintResultViewControllerDelegate <NSObject>
+- (void) showPrintResultForWLAN;
+- (void) showPrintResultForBluetooth;
+@end
 
-
-@interface ViewController : UIViewController 
+@interface ViewController : UIViewController <BRWLANPrintOperationDelegate>
 
 @property (strong, nonatomic) IBOutlet UIImageView *image;
 
+@property (nonatomic, weak)id<BRPrintResultViewControllerDelegate> delegate;
 
 
 @end
