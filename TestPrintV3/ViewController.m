@@ -422,6 +422,7 @@
             result = [[[priterListArray objectForKey:@"Brother PJ-673"] objectForKey:@"PaperSize"] objectAtIndex:0];
         }
     }
+    result = @"62mm";
     return result;
 }
 
