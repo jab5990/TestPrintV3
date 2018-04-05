@@ -294,9 +294,14 @@
     [defaults setObject:@""                                                 forKey:kExportPrintFileNameKey];
     [defaults setObject:@"1"                                                forKey:kPrintNumberOfPaperKey];
     [defaults setObject:[self defaultPaperSize]                             forKey:kPrintPaperSizeKey];
-    [defaults setObject:[NSString stringWithFormat:@"%d", Landscape]        forKey:kPrintOrientationKey];
+    // [defaults setObject:[NSString stringWithFormat:@"%d", Landscape]        forKey:kPrintOrientationKey];
+    // [defaults setObject:[NSString stringWithFormat:@"%d", Original]         forKey:kScalingModeKey];
+    // [defaults setObject:@"0.5"                                              forKey:kScalingFactorKey];
+ 
+    [defaults setObject:[NSString stringWithFormat:@"%d", Portrate]        forKey:kPrintOrientationKey];
     [defaults setObject:[NSString stringWithFormat:@"%d", Original]         forKey:kScalingModeKey];
-    [defaults setObject:@"0.5"                                              forKey:kScalingFactorKey];
+    [defaults setObject:@"1.0"                                              forKey:kScalingFactorKey];
+
     
     [defaults setObject:[NSString stringWithFormat:@"%d", Binary]           forKey:kPrintHalftoneKey];
     [defaults setObject:[NSString stringWithFormat:@"%d", Left]             forKey:kPrintHorizintalAlignKey];
@@ -326,7 +331,8 @@
     [defaults setObject:[NSString stringWithFormat:@"%d", RotateOff]        forKey:kRotateKey];
     [defaults setObject:[NSString stringWithFormat:@"%d", PeelOff]          forKey:kPeelKey];
     
-    [defaults setObject:[NSString stringWithFormat:@"%d", CutMarkOff]       forKey:kPrintCutMarkKey];
+    // [defaults setObject:[NSString stringWithFormat:@"%d", CutMarkOff]       forKey:kPrintCutMarkKey];
+    [defaults setObject:[NSString stringWithFormat:@"%d", CutMarkOn]       forKey:kPrintCutMarkKey];
     [defaults setObject:@"0"                                                forKey:kPrintLabelMargineKey];
     
     [defaults setObject:[NSString stringWithFormat:@"%d", DensityMax5Level1]    forKey:kPrintDensityMax5Key];
@@ -369,6 +375,7 @@
     }
     
     result = @"62mm";
+    // result = @"60mmx86mm";
     
     return result;
 }
