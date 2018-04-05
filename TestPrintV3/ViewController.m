@@ -68,7 +68,8 @@
     CGSize size = CGSizeMake(550, 300);
     
     UIGraphicsBeginImageContext(size);
-    
+
+
     [pic drawInRect:CGRectMake(0.0, 15.0, 200.0, 250.0)];
 
     // Name
@@ -91,7 +92,7 @@
     NSDictionary *attr = [NSDictionary dictionaryWithObject:style forKey:NSParagraphStyleAttributeName];
     NSDictionary *normalDict = [[NSDictionary alloc]initWithObjectsAndKeys:style,NSParagraphStyleAttributeName, font2, NSFontAttributeName, nil];
     [header drawInRect:CGRectMake(210.0, 15.0, 300.0, 100.0) withAttributes:normalDict];
-    
+
 
     UIImage *image = UIGraphicsGetImageFromCurrentImageContext();
     UIGraphicsEndImageContext();
