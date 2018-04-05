@@ -69,59 +69,33 @@
     
     if ([self.ptp isPrinterReady])
     {
-        // self.communicationResultForWLAN = [self.ptp startCommunication];
         [self.ptp startCommunication];
         
-        //if (self.communicationResultForWLAN)
-        //{
-            
-            [self.ptp setPrintInfo:self.printInfo];
-            [self.ptp setCustomPaperFile:self.customPaperFilePath];
-            
-            
-            // NSString *selectedPDFFilePath = [userDefaults objectForKey:kSelectedPDFFilePath];
-            
-            int printResult = 0;
-            
-            /*
-            if (![selectedPDFFilePath isEqualToString:@"0"]){
-                NSUInteger length = 0;
-                NSUInteger pageIndexes[] = {0};
-                //                int copies = 2;
-                printResult = [self.ptp printPDFAtPath:selectedPDFFilePath pages:pageIndexes length:length copy:self.numberOfPaper];
-            }
-            else{ */
-                
-                printResult = [self.ptp printImage:self.imgRef copy:self.numberOfPaper];
-            
-            //}
-            
-            [userDefaults setObject:[NSString stringWithFormat:@"%d", printResult] forKey:kPrintResultForWLAN];
+        [self.ptp setPrintInfo:self.printInfo];
+        [self.ptp setCustomPaperFile:self.customPaperFilePath];
+        
+        int printResult = [self.ptp printImage:self.imgRef copy:self.numberOfPaper];
+        
+        [userDefaults setObject:[NSString stringWithFormat:@"%d", printResult] forKey:kPrintResultForWLAN];
+        [userDefaults synchronize];
+        
+        PTSTATUSINFO resultstatus;
+        BOOL result = [self.ptp getPTStatus:&resultstatus];
+        if (result) {
+            [userDefaults setObject:[NSString stringWithFormat:@"%d", resultstatus.byFiller] forKey:kPrintStatusBatteryPowerForWLAN];
             [userDefaults synchronize];
-            
-            PTSTATUSINFO resultstatus;
-            BOOL result = [self.ptp getPTStatus:&resultstatus];
-            if (result) {
-                [userDefaults setObject:[NSString stringWithFormat:@"%d", resultstatus.byFiller] forKey:kPrintStatusBatteryPowerForWLAN];
-                [userDefaults synchronize];
-            }
-            else if (!result) {
-                // Error
-            }
-            if ([self.delegate respondsToSelector:@selector(showPrintResultForWLAN)]) {
-                [self.delegate showPrintResultForWLAN];
-            }
-        //}
+        }
+        else if (!result) {
+            // Error
+        }
+        if ([self.delegate respondsToSelector:@selector(showPrintResultForWLAN)]) {
+            [self.delegate showPrintResultForWLAN];
+        }
+
         [self.ptp endCommunication];
         
     }
-    else
-    {
-        self.communicationResultForWLAN = NO;
-    }
     
-    //self.isExecutingForWLAN = NO;
-    //self.isFinishedForWLAN = YES;
 }
 
 @end

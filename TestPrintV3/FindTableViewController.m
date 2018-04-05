@@ -31,18 +31,7 @@
     _networkManager = [[BRPtouchNetworkManager alloc] init];
     _networkManager.delegate = self;
     
-    // Set search mode.
-    //switch (self.mSearchMode)
-    //{
-    //    case BRSearchModeIPv6IPv4:
-    //        _networkManager.isEnableIPv6Search = YES;
-    //        break;
-            
-    //    case BRSearchModeIPv4:
-    //    default:
-            _networkManager.isEnableIPv6Search = NO;
-    //        break;
-    //}
+    _networkManager.isEnableIPv6Search = NO;
     
     NSString *    path = [[NSBundle mainBundle] pathForResource:@"PrinterList" ofType:@"plist"];
     if( path )
@@ -52,7 +41,6 @@
         [_networkManager setPrinterNames:printerList];
     }
     
-    //    Start printer search
     [_networkManager startSearch: 5.0];
     
     //    Create indicator View
@@ -67,12 +55,6 @@
     //    Start indicator animation
     [_indicator startAnimating];
     
-    // Uncomment the following line to preserve selection between presentations.
-    // self.clearsSelectionOnViewWillAppear = NO;
-    
-    // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
-    // self.navigationItem.rightBarButtonItem = self.editButtonItem;
-
 }
 
 

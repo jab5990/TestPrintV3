@@ -28,7 +28,6 @@
 
 @end
 
-
 @implementation ViewController
 
 
@@ -51,16 +50,9 @@
 }
 
 
-- (IBAction)findPrinter:(id)sender
-{
-
-}
-
-
 - (void)createImage
 {
     UIImage *image;
-    // image = [self imageFromText];
     image = [self imageFromTextWithPic];
     self.image.image = image;
     
@@ -81,7 +73,6 @@
     
     UIGraphicsBeginImageContext(size);
     
-    // [pic drawAtPoint:CGPointMake(0.0, 15.0)];
     [pic drawInRect:CGRectMake(0.0, 15.0, 200.0, 250.0)];
     
     [header drawAtPoint:CGPointMake(210.0, 15.0) withFont:font2];
@@ -106,7 +97,6 @@
         }
         else {
             // Connection Error
-            // [self showConnectionErrorAlert];
         }
     }
     
@@ -118,7 +108,6 @@
     self.bytesWritten = [NSNumber numberWithInt:0];
     self.bytesToWrite = [NSNumber numberWithInt:0];
     self.type = CONNECTION_TYPE_ERROR;
-    
     
     NSUserDefaults *userDefaults = [NSUserDefaults standardUserDefaults];
     NSString *selectedDevice = nil;
@@ -206,80 +195,36 @@
     printInfo.bMode9 = (int)[userDefaults integerForKey:kPrintMode9];// Item 35
     printInfo.bRawMode = (int)[userDefaults integerForKey:kPrintRawMode];// Item 36
     
-    NSLog(@"kSelectedDevice             = %@"   , selectedDevice);
-    NSLog(@"kIPAddress                  = %@"   , ipAddress);
-    NSLog(@"kSerialNumber               = %@"   , serialNumber);
-    NSLog(@"");
-    NSLog(@"strSaveFilePath             = %@"   , printInfo.strSaveFilePath);
-    NSLog(@"kPrintNumberOfPaperKey      = %@"   , numPaper);
-    NSLog(@"kPrintPaperSizeKey          = %@"   , printInfo.strPaperName);
-    NSLog(@"kPrintOrientationKey        = %d"   , printInfo.nOrientation);
-    NSLog(@"kPrintDensityKey            = %d"   , printInfo.nDensity);
-    NSLog(@"kScalingModeKey             = %d"   , printInfo.nPrintMode);
-    NSLog(@"kScalingFactorKey           = %lf"  , printInfo.scaleValue);
-    NSLog(@"kPrintHalftoneKey           = %d"   , printInfo.nHalftone);
-    NSLog(@"kPrintHorizintalAlignKey    = %d"   , printInfo.nHorizontalAlign);
-    NSLog(@"kPrintVerticalAlignKey      = %d"   , printInfo.nVerticalAlign);
-    NSLog(@"kPrintPaperAlignKey         = %d"   , printInfo.nPaperAlign);
-    NSLog(@"");
-    NSLog(@"nExtFlag                    = %d"   , printInfo.nExtFlag);
-    NSLog(@"");
-    NSLog(@"nRollPrinterCase            = %d"   , printInfo.nRollPrinterCase);
-    NSLog(@"nSpeed                      = %d"   , printInfo.nSpeed);
-    NSLog(@"bBidirection                = %d"   , printInfo.bBidirection);
-    NSLog(@"");
-    NSLog(@"kPrintFeedMarginKey         = %d"   , printInfo.nCustomFeed);
-    NSLog(@"kPrintCustomLengthKey       = %d"   , printInfo.nCustomLength);
-    NSLog(@"kPrintCustomWidthKey        = %d"   , printInfo.nCustomWidth);
-    NSLog(@"");
-    NSLog(@"nAutoCutFlag                = %d"   , printInfo.nAutoCutFlag);
-    NSLog(@"bEndCut                = %d"   , printInfo.bEndcut);
-    NSLog(@"bSpecialTape                = %d"   , printInfo.bSpecialTape);
-    NSLog(@"bHalfCut                = %d"   , printInfo.bHalfCut);
-    NSLog(@"bRotate180                  = %d"   , printInfo.bRotate180);
-    NSLog(@"bPeel                       = %d"   , printInfo.bPeel);
-    NSLog(@"");
-    NSLog(@"kPrintCustomPaperKey        = %@"   , customPaperFilePath);
-    NSLog(@"");
-    NSLog(@"bCutMark                    = %d"   , printInfo.bCutMark);
-    NSLog(@"nLabelMargine               = %d"   , printInfo.nLabelMargine);
-    NSLog(@"nPJPaperKind                = %d"   , printInfo.nPJPaperKind);
-    NSLog(@"nPrintQuality               = %d"   , printInfo.nPrintQuality);
-    NSLog(@"bMode9                      = %d"   , printInfo.bMode9);
-    NSLog(@"bRawMode                    = %d"   , printInfo.bRawMode);
-    
-    //[self initWithNotificationObserver];
     
     if (self.type != CONNECTION_TYPE_ERROR)
     {
         _ptp = [[BRPtouchPrinter alloc] initWithPrinterName:selectedDevice interface:self.type];
         CGImageRef imgRef = [self.image.image CGImage];
         
+
+        self.queueForWLAN = [[NSOperationQueue alloc] init];
+        self.operationForWLAN = [[BRWLANPrintOperation alloc] initWithOperation:_ptp
+                                                                      printInfo:printInfo
+                                                                         imgRef:imgRef
+                                                                  numberOfPaper:[numPaper intValue]
+                                                                      ipAddress:ipAddress
+                                                                customPaperFile:customPaperFilePath];
+        [self.operationForWLAN addObserver:self
+                                forKeyPath:@"isFinishedForWLAN"
+                                   options:NSKeyValueObservingOptionNew
+                                   context:nil];
         
-                self.queueForWLAN = [[NSOperationQueue alloc] init];
-                self.operationForWLAN = [[BRWLANPrintOperation alloc] initWithOperation:_ptp
-                                                                              printInfo:printInfo
-                                                                                 imgRef:imgRef
-                                                                          numberOfPaper:[numPaper intValue]
-                                                                              ipAddress:ipAddress
-                                                                        customPaperFile:customPaperFilePath];
-                [self.operationForWLAN addObserver:self
-                                        forKeyPath:@"isFinishedForWLAN"
-                                           options:NSKeyValueObservingOptionNew
-                                           context:nil];
-                
-                [self.operationForWLAN addObserver:self
-                                        forKeyPath:@"communicationResultForWLAN"
-                                           options:NSKeyValueObservingOptionNew
-                                           context:nil];
-                
-                self.operationForWLAN.delegate = self;
-                
-                [self.queueForWLAN addOperation:self.operationForWLAN];
+        [self.operationForWLAN addObserver:self
+                                forKeyPath:@"communicationResultForWLAN"
+                                   options:NSKeyValueObservingOptionNew
+                                   context:nil];
+        
+        self.operationForWLAN.delegate = self;
+        
+        [self.queueForWLAN addOperation:self.operationForWLAN];
     }
 
 }
-
 
 
 - (void) showConnectionErrorAlert
@@ -422,7 +367,9 @@
             result = [[[priterListArray objectForKey:@"Brother PJ-673"] objectForKey:@"PaperSize"] objectAtIndex:0];
         }
     }
+    
     result = @"62mm";
+    
     return result;
 }
 
