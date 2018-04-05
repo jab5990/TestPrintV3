@@ -62,11 +62,7 @@
 {
     UIImage *pic = [UIImage imageNamed:@"empty_back.png"];
     
-    NSString *name = @"Jose Barroso";
-    NSString *dateIn = @"April 5, 2018    8:34 AM";
-    NSString *header = @"Visitor";
-    
-    UIFont *font2 = [UIFont systemFontOfSize:70.0];
+    UIFont *font2 = [UIFont systemFontOfSize:60.0];
     UIFont *font = [UIFont systemFontOfSize:50.0];
     UIFont *font3 = [UIFont systemFontOfSize:20.0];
     CGSize size = CGSizeMake(550, 300);
@@ -74,11 +70,29 @@
     UIGraphicsBeginImageContext(size);
     
     [pic drawInRect:CGRectMake(0.0, 15.0, 200.0, 250.0)];
+
+    // Name
+    NSString *name = @"Jose Barroso";
+    NSMutableParagraphStyle *style = [[NSParagraphStyle defaultParagraphStyle] mutableCopy];
+    style.alignment = NSTextAlignmentCenter;
+    NSDictionary *attr3 = [NSDictionary dictionaryWithObject:style forKey:NSParagraphStyleAttributeName];
+    NSDictionary *normalDict3 = [[NSDictionary alloc]initWithObjectsAndKeys:style,NSParagraphStyleAttributeName, font, NSFontAttributeName, nil];
+    [name drawInRect:CGRectMake(210.0, 100.0, 300.0, 150.0) withAttributes:normalDict3];
     
-    [header drawAtPoint:CGPointMake(210.0, 15.0) withFont:font2];
-    [name drawAtPoint:CGPointMake(210.0, 100.0) withFont:font];
-    [dateIn drawAtPoint:CGPointMake(210.0, 230.0) withFont:font3];
+    // Date
+    NSString *dateIn = @"April 5, 2018    8:34 AM";
+    NSDictionary *attr2 = [NSDictionary dictionaryWithObject:style forKey:NSParagraphStyleAttributeName];
+    NSDictionary *normalDict2 = [[NSDictionary alloc]initWithObjectsAndKeys:style,NSParagraphStyleAttributeName, font3, NSFontAttributeName, nil];
+    [dateIn drawInRect:CGRectMake(210.0, 200.0, 300.0, 80.0) withAttributes:normalDict2];
+     
+
+    // Header
+    NSString *header = @"Visitor";
+    NSDictionary *attr = [NSDictionary dictionaryWithObject:style forKey:NSParagraphStyleAttributeName];
+    NSDictionary *normalDict = [[NSDictionary alloc]initWithObjectsAndKeys:style,NSParagraphStyleAttributeName, font2, NSFontAttributeName, nil];
+    [header drawInRect:CGRectMake(210.0, 15.0, 300.0, 100.0) withAttributes:normalDict];
     
+
     UIImage *image = UIGraphicsGetImageFromCurrentImageContext();
     UIGraphicsEndImageContext();
     
