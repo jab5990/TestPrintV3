@@ -40,6 +40,8 @@
     self.printerIP.text = [userDefaults stringForKey:kSelectedDevice];
     self.printerName.text = [userDefaults stringForKey:kIPAddress];
 
+    [self print:nil];
+    
 }
 
 - (void)viewWillAppear:(BOOL)animated {
@@ -62,37 +64,44 @@
 {
     UIImage *pic = [UIImage imageNamed:@"empty_back.png"];
     
-    UIFont *font2 = [UIFont systemFontOfSize:60.0];
-    UIFont *font = [UIFont systemFontOfSize:50.0];
-    UIFont *font3 = [UIFont systemFontOfSize:20.0];
-    CGSize size = CGSizeMake(550, 300);
+    UIFont *font2 = [UIFont systemFontOfSize:120.0];
+    UIFont *font = [UIFont systemFontOfSize:100.0];
+    UIFont *font3 = [UIFont systemFontOfSize:40.0];
+    CGSize size = CGSizeMake(1000, 650);
     
     UIGraphicsBeginImageContext(size);
+    CGContextRef context = UIGraphicsGetCurrentContext();
 
-
-    [pic drawInRect:CGRectMake(0.0, 15.0, 200.0, 250.0)];
-
+    CGContextSetRGBStrokeColor(context, 0.5, 0.5, 0.5, 1.0);
+    CGContextSetRGBFillColor(context, 0.5, 0.5, 0.5, 1.0);
+    
+    [pic drawInRect:CGRectMake(10.0, 10.0, 400.0, 620.0)];
+    
     // Name
-    NSString *name = @"Jose Barroso";
+    NSString *name = @"Josefone Longname";
     NSMutableParagraphStyle *style = [[NSParagraphStyle defaultParagraphStyle] mutableCopy];
     style.alignment = NSTextAlignmentCenter;
     NSDictionary *attr3 = [NSDictionary dictionaryWithObject:style forKey:NSParagraphStyleAttributeName];
     NSDictionary *normalDict3 = [[NSDictionary alloc]initWithObjectsAndKeys:style,NSParagraphStyleAttributeName, font, NSFontAttributeName, nil];
-    [name drawInRect:CGRectMake(210.0, 100.0, 300.0, 150.0) withAttributes:normalDict3];
+    [name drawInRect:CGRectMake(460.0, 220.0, 550.0, 350.0) withAttributes:normalDict3];
     
     // Date
-    NSString *dateIn = @"April 5, 2018    8:34 AM";
+    NSString *dateIn = @"April 8, 2018    12:34 PM";
     NSDictionary *attr2 = [NSDictionary dictionaryWithObject:style forKey:NSParagraphStyleAttributeName];
     NSDictionary *normalDict2 = [[NSDictionary alloc]initWithObjectsAndKeys:style,NSParagraphStyleAttributeName, font3, NSFontAttributeName, nil];
-    [dateIn drawInRect:CGRectMake(210.0, 200.0, 300.0, 80.0) withAttributes:normalDict2];
-     
-
+    [dateIn drawInRect:CGRectMake(460.0, 550.0, 500.0, 100.0) withAttributes:normalDict2];
+    
+    
     // Header
     NSString *header = @"Visitor";
     NSDictionary *attr = [NSDictionary dictionaryWithObject:style forKey:NSParagraphStyleAttributeName];
     NSDictionary *normalDict = [[NSDictionary alloc]initWithObjectsAndKeys:style,NSParagraphStyleAttributeName, font2, NSFontAttributeName, nil];
-    [header drawInRect:CGRectMake(210.0, 15.0, 300.0, 100.0) withAttributes:normalDict];
-
+    [header drawInRect:CGRectMake(460.0, 30.0, 500.0, 300.0) withAttributes:normalDict];
+    
+    CGContextFillRect(context, CGRectMake(0.0, 15.0, 990.0, 1.0)); // top
+    CGContextFillRect(context, CGRectMake(0.0, 15.0, 1.0, 615.0)); // left vertical
+    CGContextFillRect(context, CGRectMake(0.0, 630.0, 990.0, 2.0)); // bottom
+    CGContextFillRect(context, CGRectMake(990.0, 15.0, 1.0, 615.0)); // right vertical
 
     UIImage *image = UIGraphicsGetImageFromCurrentImageContext();
     UIGraphicsEndImageContext();
@@ -103,7 +112,7 @@
 - (IBAction)print:(id)sender
 {
     [self createImage];
-    
+    /*
     [self prepareForPtp];
     if (_ptp)
     {
@@ -113,7 +122,7 @@
         else {
             // Connection Error
         }
-    }
+    } */
     
 }
 
